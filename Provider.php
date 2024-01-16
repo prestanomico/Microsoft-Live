@@ -14,6 +14,7 @@ class Provider extends AbstractProvider
      * {@inheritdoc}
      */
     protected $scopes = ['User.Read User.ReadBasic.All'];
+    protected $fields = ['id', 'name', 'email', 'displayName', 'userPrincipalName'];
 
     /**
      * {@inheritdoc}
