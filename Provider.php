@@ -46,7 +46,7 @@ class Provider extends AbstractProvider
     protected function getUserByToken($token)
     {
         $response = $this->getHttpClient()->get(
-            'https://graph.microsoft.com/v1.0/me',
+            'https://graph.microsoft.com/v1.0/me?$select='.implode(',', $this->fields),
             [RequestOptions::HEADERS => [
                 'Accept'        => 'application/json',
                 'Authorization' => 'Bearer '.$token,
