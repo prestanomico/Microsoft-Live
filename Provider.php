@@ -70,4 +70,27 @@ class Provider extends AbstractProvider
             'avatar'   => null,
         ]);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getTokenFields($code)
+    {
+        return array_merge(parent::getTokenFields($code), [
+            'grant_type' => 'authorization_code',
+        ]);
+    }
+
+    /**
+     * Set the user fields to request from Live.
+     *
+     * @param  array  $fields
+     * @return $this
+     */
+    public function fields(array $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
 }
